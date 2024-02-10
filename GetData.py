@@ -31,17 +31,18 @@ class InstagramTool():
         userNameInput.send_keys(self.userName)
         passwordInput.send_keys(self.password)
         passwordInput.send_keys(Keys.ENTER)
-        time.sleep(5)
+        time.sleep(7)
 
-        wrongDataInfo = self.browser.find_element('xpath','//*[@id="loginForm"]/span/div')
+        #try-catch daha mantıklı gibi üstünde düşünülür
+        # wrongDataInfo = self.browser.find_element('xpath','//*[@id="loginForm"]/span/div')
 
-        if wrongDataInfo:
-            print("incorrect.")
-            # LoginIncorrectMessage()
-            # self.Close()
-        else:
-            # LoginCorrectMessage()
-            print("login successful.")
+        # if wrongDataInfo:
+        #     print("incorrect.")
+        #     # LoginIncorrectMessage()
+        #     # self.Close()
+        # else:
+        #     # LoginCorrectMessage()
+        #     print("login successful.")
 
     def GetFollowers(self):
         targetFolderPath = os.path.join("./", "output", str((datetime.date.today().strftime("%d_%m_%Y"))))
@@ -51,7 +52,7 @@ class InstagramTool():
             pass
 
         self.browser.get(self.userFollowersLink)
-        time.sleep(3)
+        time.sleep(5)
 
         dialog_window = self.browser.find_element("xpath","//*[@role='dialog']")
         main_div = self.browser.find_element(By.CLASS_NAME, "_aano")
@@ -65,9 +66,9 @@ class InstagramTool():
         while True:
             self.actions.move_to_element(dialog_window).perform()
             scroll_origin = ScrollOrigin.from_element(dialog_window)
-            self.actions.scroll_from_origin(scroll_origin, 0, 500).perform()  # 500 piksel aşağı kaydır
+            self.actions.scroll_from_origin(scroll_origin, 0, 5000).perform()  # 550 piksel aşağı kaydır
 
-            time.sleep(3)
+            time.sleep(6)
 
             followers = target_div2.find_elements("xpath","./div")
             newCount = len(followers)
@@ -121,9 +122,9 @@ class InstagramTool():
 
             scroll_origin = ScrollOrigin.from_element(dialog_window)
 
-            self.actions.scroll_from_origin(scroll_origin, 0, 500).perform()  # 500 piksel aşağı kaydır
+            self.actions.scroll_from_origin(scroll_origin, 0, 5000).perform()  # 550 piksel aşağı kaydır
 
-            time.sleep(3)
+            time.sleep(6)
 
             followings = target_div2.find_elements("xpath","./div")
             newCount = len(followings)

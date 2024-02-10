@@ -51,6 +51,16 @@ label2 = tk.Label(frame, text="Password")
 label2.grid(row=1, column=0, padx=5, pady=5)
 textbox2 = tk.Entry(frame, show="*", width=30)
 textbox2.grid(row=1, column=1, padx=5, pady=5)
+# # Create textbox 3
+# global textbox3
+# label3 = tk.Label(frame, text="Follower Limit is Minimum number of followers of accounts that will not be included among impostors")
+# label3.grid(row=2, column=1, padx=5, pady=5)
+# label3 = tk.Label(frame, text="Follower Limit")
+# label3.grid(row=3, column=0, padx=5, pady=5)
+# textbox3 = tk.Text(frame, height=1, width=22)
+# textbox3.grid(row=3, column=1, padx=5, pady=5)
+
+
 
 button = tk.Button(root, text="Scan", command=ScanButtonClick) #klasör oluşturma işlemi
 button.pack(pady=10)
